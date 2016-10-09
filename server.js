@@ -26,7 +26,7 @@ app.post("/message", function (request, response) {
     msg = smsfunc(param);
     replyMessage += (msg + "\n");
   }
-  else if (commandList[0] in emojiMap.mmsEmo) {
+  else if (action in emojiMap.mmsEmo) {
     mms = true;
     var mmsfunc = commands[emojiMap.mmsEmo[action].func];
     mediaUrl = mmsfunc();
