@@ -39,15 +39,15 @@ function bedroomLight() {
     
 function livingRoomLight() {
     board.wait(1, function() {
-        leds[2].toggle();
+        leds[3].toggle();
     })
 }
     
-function TV() {
+/*function TV() {
     board.wait(1, function() {
         leds[2].toggle();
     })
-}
+}*/
     
 function bathroomLight() {
     board.wait(1, function() {

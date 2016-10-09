@@ -21,7 +21,7 @@ app.post("/message", function (request, response) {
   if (action in emojiMap.smsEmo) {
       var param = null;
       if (commandList.length > 0)
-          param = commandlist[1];
+          param = commandList[1];
     var smsfunc = commands[emojiMap.smsEmo[action].func];
     msg = smsfunc(param);
     replyMessage += (msg + "\n");

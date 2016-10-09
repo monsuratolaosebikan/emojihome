@@ -1,6 +1,6 @@
 module.exports = {
   smsEmo : {
-    "☀️": {func: "turnOnLights", on:false},
+    "💡": {func: "turnOnLights", on:false},
     "📺": {func: "turnOnTV", on:false},
     "🚽" : {func: "flushToilet", on:false},
     "🔒": {func: "lockDoor", on: false},
