@@ -1,6 +1,7 @@
 
 
 var emoji = require('./emojis');
+var arduino = require('./arduinocontroller');
 module.exports =  {
   "turnOnLights": turnOnLights,
   "turnOnTV" : turnOnTV,
@@ -28,7 +29,10 @@ function turnOnLights() {
 
 function turnOnTV() {
   //document.getElementById('1 Music').play()
-  return "Turning on the TV";
+    var message = emoji.smsEmo['📺'].on ? "Turning off the TV" : "Turning on the TV";
+    emoji.smsEmo['📺'].on = !(emoji.smsEmo['📺'].on)
+    arduino["TV"]();
+    return message;
 }
 
 function flushToilet() {
