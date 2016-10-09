@@ -15,5 +15,12 @@ module.exports = {
     "🕵🏻": {func: "spyCamImage"},
     "🕵️️": {func: "spyCamImage"},
     "🕵️": {func: "spyCamImage"}
+  },
+    
+  rooms : {
+      "🛏": {func: "bedroomLight", on:false},
+      "🛋": {func: "livingRoomLight", on:false},
+      "🍽": {func: "kitchenLight", on:false},
+      "🛀": {func: "bathroomLight", on:false}
   }
 };

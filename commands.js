@@ -2,6 +2,7 @@
 
 var emoji = require('./emojis');
 var arduino = require('./arduinocontroller');
+
 module.exports =  {
   "turnOnLights": turnOnLights,
   "turnOnTV" : turnOnTV,
@@ -15,16 +16,13 @@ module.exports =  {
   "spyCamImage" : spyCamImage 
 };
 
-function turnOnLights() {
+function turnOnLights(param) {
     console.log(emoji);
-  if(emoji.smsEmo["☀️"].on === true) {
-    emoji["☀️"].on = false;
-    return "Turning off the lights";
-  }
-  else {
-    emoji.smsEmo["☀️"].on = true;
-    return "Turning on the lights";
-  }
+    var room = emoji.rooms[param]
+    var message = room.on? "Turning off the lights" : "Turning on the lights";
+    room.on = !room.on;
+    arduino[room.func]();
+    return message;
 }
 
 function turnOnTV() {

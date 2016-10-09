@@ -16,24 +16,24 @@ app.post("/message", function (request, response) {
     var replyMessage = "";
     var mms = false;
     var mediaUrl = "";
+    var action = commandList[0];
     
-    commandList.forEach(function(action) {
-      
-      if (action in emojiMap.smsEmo) {
-        var smsfunc = commands[emojiMap.smsEmo[action].func];
-        msg = smsfunc();
-        replyMessage += (msg + "\n");
-      }
-      else if (action in emojiMap.mmsEmo) {
-        mms = true;
-        var mmsfunc = commands[emojiMap.mmsEmo[action].func];
-        mediaUrl = mmsfunc();
-      }
-      else {
-        replyMessage += ("We don't support " + action + " at this time\n");
-      }
-      
-    },this);
+  if (action in emojiMap.smsEmo) {
+      var param = null;
+      if (commandList.length > 0)
+          param = commandlist[1];
+    var smsfunc = commands[emojiMap.smsEmo[action].func];
+    msg = smsfunc(param);
+    replyMessage += (msg + "\n");
+  }
+  else if (commandList[0] in emojiMap.mmsEmo) {
+    mms = true;
+    var mmsfunc = commands[emojiMap.mmsEmo[action].func];
+    mediaUrl = mmsfunc();
+  }
+  else {
+    replyMessage += ("We don't support " + action + " at this time\n");
+  }
     
     if (!mms) {
       console.log(replyMessage);
